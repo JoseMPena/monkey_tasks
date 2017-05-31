@@ -3,12 +3,27 @@
   <head>
     <title>MonkeyTasks</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.2/build/reset-fonts-grids/reset-fonts-grids.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="content">
+      <div id="header">
+        <%= image_tag 'monkeyhead.gif' %>
+        <%= image_tag 'monkeytasks.gif' %>
+      </div> <!-- End header -->
+      <ul id="topnav">
+        <li>
+          <%= link_to 'Today', root_path %>
+        </li>
+        <li>
+          <%= link_to 'Logout', account_logout_path %>
+        </li>
+      </ul>
+      <p class="flash_notice"><%= flash[:notice] %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
